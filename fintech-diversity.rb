@@ -9,3 +9,14 @@ array_companies.map do |company|
     company[header] = info.downcase
   end
 end
+
+filter = []
+array_companies.each do |row|
+  if row[:location] == "london" && row[:industry] == "fintech"
+    filter << row
+  end
+end
+
+
+p filter
+p filter.length
