@@ -5,18 +5,19 @@ csv = CSV.read('companies.csv', headers: true, header_converters: [:symbol, :dow
 array_companies = csv.map{|row| row.to_h}
 
 array_companies.map do |company|
-  company.map do |header, info|
-    company[header] = info.downcase
-  end
+  company[:percent_female_eng] = company[:percent_female_eng].to_i
+  company[:industry] = company[:industry].downcase
 end
 
-filter = []
-array_companies.each do |row|
-  if row[:location] == "london" && row[:industry] == "fintech"
-    filter << row
-  end
-end
+p array_companies
+
+# filter = []
+# array_companies.each do |company|
+#   if company[:location] == "london" && company[:industry] == "fintech" && company[:]
+#     filter << company
+#   end
+# end
 
 
-p filter
-p filter.length
+# p filter
+# p filter.length
