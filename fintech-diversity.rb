@@ -23,13 +23,13 @@ def filter_data
       filter << company
     end
   end
+  filter
 end
 
-# pp filter
-def result(csv_file)
-  import_csv(csv_file)
-  format_data
-  filter_data
-end
+import_csv('companies.csv')
+format_data
+pp filter_data
 
-pp result('companies.csv')
+
+
+
